@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_dependency "barking_iguana-otk"
+  spec.add_dependency "term-ansicolor"
 end
