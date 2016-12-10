@@ -10,17 +10,15 @@ module BarkingIguana
     include Otk::Defaults
     defaults default_level: Logger::INFO,
       default_target: Output.new($stdout),
-      default_raw_append_threshold: Logger::DEBUG
+      default_raw_append_threshold: Logger::DEBUG,
+      colours: %i(red green yellow blue magenta cyan white)
+
 
     def self.get_logger for_instance
       Logger.new(default_target).tap do |l|
         l.level = default_level
         l.formatter = default_formatter(for_instance)
       end
-    end
-
-    def self.colours
-      %i(red green yellow blue magenta cyan white)
     end
 
     def self.default_formatter for_instance

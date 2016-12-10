@@ -1,5 +1,6 @@
 require 'barking_iguana/logging'
 
+BarkingIguana::Logging.colours = %w(red blue green yellow)
 class Example
   include BarkingIguana::Logging::Helper
 
@@ -8,8 +9,15 @@ class Example
   end
 
   def run
-    @i += 1
-    logger.info { "Testing #{@i.to_s.rjust(3, '0')}" }
+    logger.info message
+  end
+
+  def message
+    (1..rand(25)).to_a.map { word }.join ' '
+  end
+
+  def word
+    ('a'..'z').sort_by { rand }[0,1 + rand(10)].join
   end
 end
 
