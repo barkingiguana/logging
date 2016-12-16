@@ -31,7 +31,7 @@ module BarkingIguana
       @logger_index += 1
       colour = colours[@logger_index % colours.size]
       lambda do |severity, datetime, _progname, message|
-        Term::ANSIColor.public_send colour, "#{datetime.iso8601} #{label} #{severity.ljust(5)} #{message}\n"
+        Term::ANSIColor.public_send colour, "#{datetime.iso8601(6)} #{label} #{severity.ljust(5)} #{message}\n"
       end
     end
     class << self; private :default_formatter; end
