@@ -2,7 +2,7 @@ module BarkingIguana
   module Logging
     module Helper
       def self.included into
-        into.include InstanceMethods
+        into.send :include, InstanceMethods
       end
 
       module InstanceMethods
